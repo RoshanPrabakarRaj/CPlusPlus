@@ -1,0 +1,34 @@
+import sys
+currcount=-1
+l=[]
+m=[0,]
+maxlen=0
+a='.jpeg'
+b='.txt'
+c='.png'
+def flown(line,count):
+	global currcount
+	if a not in line and b not in line and c not in line:
+		if count>currcount:
+			currcount=count
+			l.append(len(line)+1)
+		elif count<currcount:
+			for i in range(count,currcount+1):
+				l.pop()
+			currcount=count
+			l.append(len(line)+1)
+		else:
+			del(l[-1])
+			l.append(len(line)+1)
+
+
+	else:
+		r=sum(l)
+
+		m.append(r)
+for line in sys.stdin:
+	count=line.count(' ')
+	line=line.replace(" ","")
+	line=line.replace("\n","")
+	flown(line,count)
+print(max(m))
