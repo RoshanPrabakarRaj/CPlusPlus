@@ -4,7 +4,7 @@ l=[]
 m=[0,]
 maxlen=0
 a='.jpeg'
-b='.txt'
+b='.gif'
 c='.png'
 def flown(line,count):
 	global currcount
@@ -26,7 +26,7 @@ def flown(line,count):
 		r=sum(l)
 
 		m.append(r)
-for line in sys.stdin:
+for line in S:
 	count=line.count(' ')
 	line=line.replace(" ","")
 	line=line.replace("\n","")
